@@ -26,7 +26,14 @@ No Answers found!
     <tbody>
         #{list answers, as:'answer'}
         <tr>
-            <td><div class="answer">#{verbatim}${answer}#{/verbatim}</div><div class="tags">Tags: ${answer.getTagsAsString()}</div></td>
+            <td>
+                <div class="answer">#{verbatim}${answer}#{/verbatim}</div>
+                <div class="tags">Tags:
+                #{list answer.tags, as:'tag'}
+                    <a title="show ${tag.name}" href="@{ Tags.show(tag.id) }">${tag.name}</a> 
+                #{/list}
+                </div>
+            </td>
             <th>
                 #{form @Application.setBestAnswer()}
                 <input type="hidden" id="aid" name="aid" value="${answer.id}"/>

@@ -1,7 +1,7 @@
 #{extends 'main.html' /}
 #{set title:'internal.innoq.com - FAQ' /}
 <h2>View Tag "${entity.name}"</h2>
-<a href="@{Tags.index}">Back</a> | 
+<a href="@{Tags.index}">Tags Index</a> |
 <a href="@{Tags.edit(entity.id)}">Edit</a> |
 <a href="@{Tags.delete(entity.id)}" onclick="if (!confirm('Are you sure you want to delete this record?')) return false;">Delete</a>
 

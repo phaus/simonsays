@@ -7,6 +7,8 @@
 package models;
 
 import helpers.StopList;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -82,8 +84,13 @@ public class Tag extends Model {
     }
 
     private static String cleanQuestion(String text) {
+        try {
+            text = URLDecoder.decode(text, "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            Logger.warn(ex.getLocalizedMessage());
+        }
         text = text.toLowerCase().replace("%", " ");
-        String findList[] = {":", "=", "\n", "_", "-", "?", ".", ",", "!", "/", "\\", "\"", "„", "“", "(", ")", "[", "]", "{", "}", "<", ">"};
+        String[] findList = {"%", ":", "=", "\n", "_", "-", "?", ".", ",", "!", "/", "\\", "\"", "„", "“", "(", ")", "[", "]", "{", "}", "<", ">"};
         for (String find : findList) {
             text = text.replace(find, " ");
         }

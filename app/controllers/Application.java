@@ -14,6 +14,9 @@ public class Application extends Controller {
     }
 
     public static void read(String query) {
+        if (query.isEmpty()) {
+            index();
+        }
         Logger.info("question entered: " + query);
         List<Tag> tags = Tag.findOrCreateTagsForText(query);
         Question question = Question.findOrCreateTagByText(query, tags);
@@ -23,7 +26,7 @@ public class Application extends Controller {
     public static void show(Long id) {
         Question question = Question.findById(id);
         List<Answer> answers = Answer.getAnswersForTags(question.tags);
-        if(answers.isEmpty()){
+        if (answers.isEmpty()) {
             question.answered = false;
             question.save();
         }
