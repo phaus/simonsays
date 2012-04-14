@@ -90,7 +90,7 @@ public class Tag extends Model {
             Logger.warn(ex.getLocalizedMessage());
         }
         text = text.toLowerCase().replace("%", " ");
-        String[] findList = {"%", ":", "=", "\n", "_", "-", "?", ".", ",", "!", "/", "\\", "\"", "„", "“", "(", ")", "[", "]", "{", "}", "<", ">"};
+        String[] findList = {"#", "%", ":", "=", "\n", "_", "-", "?", ".", ",", "!", "/", "\\", "\"", "„", "“", "(", ")", "[", "]", "{", "}", "<", ">"};
         for (String find : findList) {
             text = text.replace(find, " ");
         }
