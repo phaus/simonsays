@@ -9,7 +9,7 @@ import play.data.validation.Valid;
 
 public class Questions extends Controller {
     public static void index() {
-        List<Question> entities = models.Question.all().fetch();
+        List<Question> entities = models.Question.find("order by text ASC").fetch();
         render(entities);
     }
 

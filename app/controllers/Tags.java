@@ -13,7 +13,7 @@ import play.data.validation.Valid;
 
 public class Tags extends Controller {
     public static void index() {
-        List<Tag> entities = models.Tag.all().fetch();
+        List<Tag> entities = models.Tag.find("order by name ASC").fetch();;
         render(entities);
     }
 
