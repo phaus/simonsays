@@ -1,0 +1,33 @@
+<div class=" left row">
+    <div class="label">Text</div>
+    <div class="field">
+        <textarea name="entity.text" rows="10" cols="35">${entity?.text}</textarea>
+    </div>
+    <span class="error">${errors.forKey('entity.text')}</span>
+</div>
+<div class=" left row">
+    <div class="label"><br />Tags</div>
+    <div class="field">
+        <select name="entity.tags.id" multiple="multiple" size="20">
+            %{ models.Tag.all().fetch().sort{ it.toString() }.each() { }%
+            %{
+            selected = false;
+            entity?.tags.each() { f ->
+            if (f.id == it?.id)
+            selected = true;
+            }
+            }%
+            <option value="${it?.id}" ${selected ? 'selected'.raw() : ''}>${it}</option>
+            %{ } }%
+        </select>
+    </div>
+    <span class="error">${errors.forKey('entity.tags')}</span>
+</div>
+<div class="clear row">
+    <div class="label"></div>
+    <div class="field">
+        <input type="hidden" name="entity.id" value="${entity?.id}"/>
+    </div>
+    <span class="error">${errors.forKey('entity.id')}</span>
+</div>
+

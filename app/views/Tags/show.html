@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'internal.innoq.com - FAQ' /}
+<h2>View Tag "${entity.name}"</h2>
+<a href="@{Tags.index}">Back</a> | 
+<a href="@{Tags.edit(entity.id)}">Edit</a> |
+<a href="@{Tags.delete(entity.id)}" onclick="if (!confirm('Are you sure you want to delete this record?')) return false;">Delete</a>
+
+<div class="left">
+    <h2>Questions</h2>
+    <ul>
+        #{list questions, as:'question'}
+        <li><a href="@{Questions.show(question.id)}">#{verbatim}${question.text}#{/verbatim}</a></li>
+        #{/list}
+    </ul>
+</div>
+<div class="left">
+    <h2>Answers</h2>
+    <ul>
+        #{list answers, as:'answer'}
+        <li><a href="@{Answers.show(answer.id)}">#{verbatim}${answer.text}#{/verbatim}</a></li>
+        #{/list}
+    </ul>
+</div>
+
+<div class="clear"></div>
+

@@ -1,0 +1,31 @@
+#{extends 'main.html' /}
+#{set title:'internal.innoq.com - FAQ' /}
+<h2>Questions</h2>
+<table class="entity Question">
+    <thead>
+        <tr>
+            <th class="narrow"><!-- actions --></th>
+            <th>Text</th>
+            <th>Tags</th>
+            <th>Created_at</th>
+        </tr>
+    </thead>
+    <tbody>
+	#{list items:entities, as:'entity'}
+        <tr>
+            <td>
+                <a href="@{Questions.show(entity.id)}">Show</a><br />
+            </td>
+            <td> <a href="@{Application.read(entity.text)}">${entity.text}</a></td>
+            <td>
+                #{list entity.tags, as:'tag'}
+                <a href="@{Tags.show(tag.id)}">${tag.name}</a>
+                #{/list}
+            </td>
+            <td>${entity.created_at}</td>
+        </tr>
+	#{/list}
+    </tbody>
+</table>
+<a href="@{Questions.create}">Create</a>
+

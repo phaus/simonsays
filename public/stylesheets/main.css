@@ -1,0 +1,53 @@
+a.link:link { color:#999999; text-decoration: none }
+
+a.link:hover { color:#6699ff; text-decoration: none }
+div.cloud {
+    background-color:#FFF;
+    margin-right: auto;
+    margin-left: auto;
+    width: 800px;
+}
+
+div.cloud img {
+    padding: 2px;
+    background-color:#FFFFFF;
+    border:5px solid #80BD2C;
+    border-radius: 10px 10px;
+    -moz-box-shadow: 0 0 10px 5px #888;
+    -webkit-box-shadow: 0 0 10px 5px #888;
+    box-shadow: 0 0 10px #888;
+    margin: 10px auto;
+}
+
+table.Answer, table.Tag, table.Question {
+    width: 720px;
+}
+.left {
+    float: left;
+    padding: 10px 20px;
+}
+.clear {
+    clear: both;
+}
+td {
+    text-align: left;
+    border: 1px black solid;
+}
+
+.narrow {
+    width: 50px;
+}
+
+.answer {
+    padding: 10px;
+}
+
+.tags {
+    padding: 0px 10px;
+}
+
+textarea {
+    font-size: 2em;
+    margin: 10px 0px;
+    padding: 4px;
+}

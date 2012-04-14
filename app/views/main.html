@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="${_response_encoding}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+        <div class="cloud">
+            <div class="left">
+                <a href="http://www.innoq.com">
+                    <img alt="Company_Logo" src="/public/images/company_logo.png" />
+                </a>
+            </div>
+            <div  class="left">
+                <a href="@{ Questions.index() }">Questions</a><br />
+                <a href="@{ Answers.index() }">Answers</a><br />
+                <a href="@{ Tags.index() }">Tags</a><br />
+            </div>
+            <div class="clear"></div>
+            <h1>FAQ <a href="@{ Application.index() }">ask a Question</a> </h1>
+            <hr />
+            #{doLayout /}
+            <hr />
+            <a class="link" href="mailto:christian.sarazin@innoq.com?subject=Problem mit dem Password">Kontakt bei Problemen</a>
+        </div>
+    </body>
+</html>

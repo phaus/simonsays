@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'internal.innoq.com - FAQ' /}
+<h2>Answers</h2>
+<table class="entity Answer">
+    <thead>
+        <tr>
+            <th class="narrow"><!-- actions --></th>
+            <th>Text</th>
+            <th>Tags</th>
+            <th>Created_at</th>
+        </tr>
+    </thead>
+    <tbody>
+	#{list items:entities, as:'entity'}
+        <tr>
+            <td>
+                <a href="@{Answers.show(entity.id)}">Show</a><br />
+                <a href="@{Answers.edit(entity.id)}">Edit</a><br />
+                <a href="@{Answers.delete(entity.id)}" onclick="if (!confirm('Are you sure you want to delete this record?')) return false;">Delete</a>
+            </td>
+            <td>#{verbatim}${entity.text}#{/verbatim}</td>
+            <td>
+                #{list entity.tags, as:'tag'}
+                <a href="@{Tags.show(tag.id)}">${tag.name}</a>
+                #{/list}
+            </td>
+            <td>${entity.created_at}</td>
+        </tr>
+	#{/list}
+    </tbody>
+</table>
+<a href="@{Answers.create}">Create</a>
+

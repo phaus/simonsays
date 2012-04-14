@@ -1,0 +1,42 @@
+#{extends 'main.html' /}
+#{set title:'internal.innoq.com - FAQ' /}
+<div class="left">
+    #{form @Application.read()}
+    <label for="question">Enter a Question:</label><br />
+    <textarea cols="35" rows="3"  name="query" id="query">${question.text}</textarea><br />
+    <input type="submit" value="seach answer" />
+    #{/form}
+</div>
+<div class="left">
+    #{if !question.answered }
+    <p>UNBEANTWORTET<br /><a title="create Answer" href="@{ Answers.giveAnswerForQuestion(question.id) }">give an answer</a></p>
+    #{/if}
+</div>
+<div class="clear"></div>
+#{if answers.size == 0 }
+No Answers found!
+#{/if}
+#{else}
+<table class="Answer">
+    <thead>
+        <tr>
+            <th>Answers</th><th class="narrow">useful?</th>
+        </tr>
+    </thead>
+    <tbody>
+        #{list answers, as:'answer'}
+        <tr>
+            <td><p class="answer">#{verbatim}${answer}#{/verbatim}</p><p class="tags">Tags: ${answer.getTagsAsString()}</p></td>
+            <th>
+                #{form @Application.setBestAnswer()}
+                <input type="hidden" id="aid" name="aid" value="${answer.id}"/>
+                <input type="hidden" id="qid" name="qid" value="${question.id}"/>
+                <input type="submit" value="yes" />
+                #{/form}
+            </th>
+        </tr>
+        #{/list}
+    </tbody>
+</table>
+#{/else}
+

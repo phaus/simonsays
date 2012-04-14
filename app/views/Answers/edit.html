@@ -1,0 +1,11 @@
+#{extends 'main.html' /}
+#{set title:'internal.innoq.com - FAQ' /}
+<h2>Edit Answer</h2>
+<div class="entity">
+#{form @Answers.update(), id:'createForm'}
+	#{include 'Answers/_form.html' /}
+	<input type="submit" name="submit" value="Save" />
+#{/form}
+</div>
+<a href="@{Answers.index}">Cancel</a>
+

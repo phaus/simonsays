@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'internal.innoq.com - FAQ' /}
+<h2>View Answer</h2>
+<div class="entity">
+    <div class="row">
+        <span class="elem">
+			tags:
+        </span>
+        <span class="value">
+            #{list entity.tags, as:'tag'}
+            <a href="@{Tags.show(tag.id)}">${tag.name}</a>
+            #{/list}
+        </span>
+    </div>
+    <div class="row">
+        <span class="elem">
+			text:
+        </span>
+        <span class="value">
+            #{verbatim}${entity.text}#{/verbatim}
+        </span>
+    </div>
+    <div class="row">
+        <span class="elem">
+			created_at:
+        </span>
+        <span class="value">
+            ${entity.created_at}
+        </span>
+    </div>
+</div>
+<a href="@{Answers.index}">Back</a>
+
