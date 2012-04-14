@@ -32,6 +32,7 @@ table.Answer, table.Tag, table.Question {
 td {
     text-align: left;
     border: 1px black solid;
+    max-width: 650px;
 }
 
 .narrow {
