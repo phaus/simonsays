@@ -32,7 +32,6 @@ table.Answer, table.Tag, table.Question {
 td {
     text-align: left;
     border: 1px black solid;
-    max-width: 650px;
 }
 
 .narrow {
@@ -41,10 +40,12 @@ td {
 
 .answer {
     padding: 10px;
+    max-width: 600px;
 }
 
 .tags {
     padding: 0px 10px;
+    max-width: 600px;
 }
 
 textarea {

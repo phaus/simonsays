@@ -26,7 +26,7 @@ No Answers found!
     <tbody>
         #{list answers, as:'answer'}
         <tr>
-            <td><p class="answer">#{verbatim}${answer}#{/verbatim}</p><p class="tags">Tags: ${answer.getTagsAsString()}</p></td>
+            <td><div class="answer">#{verbatim}${answer}#{/verbatim}</div><div class="tags">Tags: ${answer.getTagsAsString()}</div></td>
             <th>
                 #{form @Application.setBestAnswer()}
                 <input type="hidden" id="aid" name="aid" value="${answer.id}"/>

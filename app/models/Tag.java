@@ -37,7 +37,7 @@ public class Tag extends Model {
         for (Tag tag : tags) {
             ids.add(tag.id);
         }
-        return StringUtils.join(ids, ",");
+        return StringUtils.join(ids, ", ");
     }
 
     public static String tagsToNames(Set<Tag> tags) {
@@ -45,7 +45,7 @@ public class Tag extends Model {
         for (Tag tag : tags) {
             names.add(tag.name);
         }
-        return StringUtils.join(names, ",");
+        return StringUtils.join(names, ", ");
     }
 
     public static Tag findOrCreateTagByName(String name) {
