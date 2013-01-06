@@ -14,7 +14,6 @@ import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Query;
-import play.Logger;
 import play.cache.Cache;
 import play.data.binding.As;
 import play.db.jpa.JPA;
